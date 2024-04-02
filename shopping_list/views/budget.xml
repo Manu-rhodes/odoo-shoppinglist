@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Budget Model -->
+    <!-- <record id="model_budget" model="ir.model">
+        <field name="name">sl.budget</field>
+        <field name="model">sl.budget</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- Budget Tree View -->
+    <record id="view_budget_tree" model="ir.ui.view">
+        <field name="name">sl.budget.tree</field>
+        <field name="model">sl.budget</field>
+        <field name="arch" type="xml">
+            <tree string="Budgets">
+                <field name="ref"/>
+                <field name="actual"/>
+                <field name="expected"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Budget Search View -->
+    <record id="view_budget_search" model="ir.ui.view">
+        <field name="name">sl.budget.search</field>
+        <field name="model">sl.budget</field>
+        <field name="arch" type="xml">
+            <search string="Budgets">
+                <field name="ref" filter_domain="[('ref', 'ilike', self)]"/> 
+                <field name="actual"/>
+                <field name="expected"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Budget Form View -->
+    <record id="view_budget_form" model="ir.ui.view">
+        <field name="name">sl.budget.form</field>
+        <field name="model">sl.budget</field>
+        <field name="arch" type="xml">
+            <form string="Budget">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="actual"/>
+                        <field name="expected"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access model and call views -->
+    <record id="action_view_budget" model="ir.actions.act_window">
+        <field name="name">Budgets</field>
+        <field name="res_model">sl.budget</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Budgets"
+        id="menu_budget"
+        parent="menu_sl_root"
+        action="action_view_budget"
+        sequence='60'/>
+
+</odoo>

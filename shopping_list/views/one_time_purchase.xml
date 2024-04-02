@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- One-Time Purchase Model -->
+    <!-- <record id="model_one_time_purchase" model="ir.model">
+        <field name="name">sl.one_time_purchase</field>
+        <field name="model">sl.one_time_purchase</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- one_time_purchase Tree View -->
+    <record id="view_one_time_purchase_tree" model="ir.ui.view">
+        <field name="name">sl.one_time_purchase.tree</field>
+        <field name="model">sl.one.time.purchase</field>
+        <field name="arch" type="xml">
+            <tree string="One-Time Purchases">
+                <field name="product_id"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="approval_status"/>
+                <field name="approval_date"/>
+                <field name="added"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- one_time_purchase Form View -->
+    <record id="view_one_time_purchase_form" model="ir.ui.view">
+        <field name="name">sl.one_time_purchase.form</field>
+        <field name="model">sl.one.time.purchase</field>
+        <field name="arch" type="xml">
+            <form string="One-Time Purchase">
+                <sheet>
+                    <group>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="quantity"/>
+                        <field name="approval_status"/>
+                        <field name="approval_date"/>
+                        <field name="added"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access onetimepurchase and call views -->
+    <record id="action_view_one_time_purchase" model="ir.actions.act_window">
+        <field name="name">One-Time Purchases</field>
+        <field name="res_model">sl.one.time.purchase</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="One-Time Purchases"
+        id="menu_one_time_purchase"
+        parent="menu_sl_root"
+        action="action_view_one_time_purchase"
+        sequence='60'/>
+
+</odoo>

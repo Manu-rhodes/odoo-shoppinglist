@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- User Model -->
+    <!-- <record id="model_user" model="ir.model">
+        <field name="name">sl.user</field>
+        <field name="model">sl.user</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- User Tree View -->
+    <record id="view_user_tree" model="ir.ui.view">
+        <field name="name">sl.user.tree</field>
+        <field name="model">sl.user</field>
+        <field name="arch" type="xml">
+            <tree string="Users">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- User Form View -->
+    <record id="view_user_form" model="ir.ui.view">
+        <field name="name">sl.user.form</field>
+        <field name="model">sl.user</field>
+        <field name="arch" type="xml">
+            <form string="User">
+                <sheet>
+                    <group>
+                        <field name="first_name"/>
+                        <field name="last_name"/>
+                        <field name="email"/>
+                        <field name="password"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access Users and call views -->
+    <record id="action_view_user" model="ir.actions.act_window">
+        <field name="name">Users</field>
+        <field name="res_model">sl.user</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Users"
+        id="menu_user"
+        parent="menu_sl_root"
+        action="action_view_user"
+        sequence='110'/>
+
+</odoo>

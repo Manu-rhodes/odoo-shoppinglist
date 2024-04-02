@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Product Model -->
+    <!-- <record id="model_product" model="ir.model">
+        <field name="name">sl.product</field>
+        <field name="model">sl.product</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- Product Tree View -->
+    <record id="view_product_tree" model="ir.ui.view">
+        <field name="name">sl.product.tree</field>
+        <field name="model">sl.product</field>
+        <field name="arch" type="xml">
+            <tree string="Products">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="qty_available"/>
+                <field name="price"/>
+                <field name="category_id"/>
+                <field name="flag"/>
+                <field name="frequency_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Product Form View -->
+    <record id="view_product_form" model="ir.ui.view">
+        <field name="name">sl.product.form</field>
+        <field name="model">sl.product</field>
+        <field name="arch" type="xml">
+            <form string="Products">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="qty_available"/>
+                        <field name="price"/>
+                        <field name="category_id"/>
+                        <field name="flag"/>
+                        <field name="frequency_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access Products and call views -->
+    <record id="action_view_product" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="res_model">sl.product</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Products"
+        id="menu_product"
+        parent="menu_sl_root"
+        action="action_view_product"
+        sequence='80'/>
+
+</odoo>

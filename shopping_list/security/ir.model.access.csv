@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access.sl.user,access_sl_user,model_sl_user,base.group_user,1,1,1,1
+access.sl.category,access_sl_category,model_sl_category,base.group_user,1,1,1,1
+access.sl.product,access_sl_product,model_sl_product,base.group_user,1,1,1,1
+access.sl.budget,access_sl_budget,model_sl_budget,base.group_user,1,1,1,1
+access.sl.frequency,access_sl_frequency,model_sl_frequency,base.group_user,1,1,1,1
+access.sl.notification,access_sl_notification,model_sl_notification,base.group_user,1,1,1,1
+access.sl.one.time.purchase,access_sl_one_time_purchase,model_sl_one_time_purchase,base.group_user,1,1,1,1
+access.sl.payment,access_sl_payment,model_sl_payment,base.group_user,1,1,1,1
+access.sl.list.line,access_sl_list_line,model_sl_list_line,base.group_user,1,1,1,1
+access.sl.list,access_sl_list,model_sl_list,base.group_user,1,1,1,1
+access.sl.purchase.history,access_sl_purchase_history,model_sl_purchase_history,base.group_user,1,1,1,1

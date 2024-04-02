@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Frequency Model -->
+    <!-- <record id="model_frequency" model="ir.model">
+        <field name="name">sl.frequency</field>
+        <field name="model">sl.frequency</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- Frequency Tree View -->
+    <record id="view_frequency_tree" model="ir.ui.view">
+        <field name="name">sl.frequency.tree</field>
+        <field name="model">sl.frequency</field>
+        <field name="arch" type="xml">
+            <tree string="Frequencies">
+                <field name="duration"/>
+                <field name="unit"/>
+                <field name="last_date_added"/>
+                <field name="product_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Frequency Form View -->
+    <record id="view_frequency_form" model="ir.ui.view">
+        <field name="name">sl.frequency.form</field>
+        <field name="model">sl.frequency</field>
+        <field name="arch" type="xml">
+            <form string="Frequency">
+                <sheet>
+                    <group>
+                        <field name="duration"/>
+                        <field name="unit"/>
+                        <field name="last_date_added"/>
+                        <field name="product_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access model and call views -->
+    <record id="action_view_frequency" model="ir.actions.act_window">
+        <field name="name">Frequencies</field>
+        <field name="res_model">sl.frequency</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Frequencies"
+        id="menu_frequency"
+        parent="menu_sl_root"
+        action="action_view_frequency"
+        sequence='70'/>
+
+</odoo>

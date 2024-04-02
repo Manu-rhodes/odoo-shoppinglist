@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Purchase History Model -->
+    <!-- <record id="model_purchase_history" model="ir.model">
+        <field name="name">sl.purchase.history</field>
+        <field name="model">sl.purchase.history</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- Purchase History Tree View -->
+    <record id="view_purchase_history_tree" model="ir.ui.view">
+        <field name="name">sl.purchase_history.tree</field>
+        <field name="model">sl.purchase.history</field>
+        <field name="arch" type="xml">
+            <tree string="Purchase History">
+                <field name="user_ids"/>
+                <field name="list_ids"/>
+                <field name="product_ids"/>
+                <field name="product_name"/>
+                <field name="unit_price"/>
+                <field name="quantity"/>
+                <field name="sub_total"/>
+                <field name="location"/>
+                <field name="promotion_on_product"/>
+                <field name="discount"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Purchase History Form View -->
+    <record id="view_purchase_history_form" model="ir.ui.view">
+        <field name="name">sl.purchase_history.form</field>
+        <field name="model">sl.purchase.history</field>
+        <field name="arch" type="xml">
+            <form string="Purchase History">
+                <sheet>
+                    <group>
+                        <field name="user_ids"/>
+                        <field name="list_ids"/>
+                        <field name="product_ids"/>
+                        <field name="product_name"/>
+                        <field name="unit_price"/>
+                        <field name="quantity"/>
+                        <field name="sub_total"/>
+                        <field name="location"/>
+                        <field name="promotion_on_product"/>
+                        <field name="discount"/>
+                        <field name="date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access Purchase History and call views -->
+    <record id="action_view_purchase_history" model="ir.actions.act_window">
+        <field name="name">Purchase History</field>
+        <field name="res_model">sl.purchase.history</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Purchase History"
+        id="menu_purchase_history"
+        parent="menu_sl_root"
+        action="action_view_purchase_history"
+        sequence='90'/>
+
+</odoo>

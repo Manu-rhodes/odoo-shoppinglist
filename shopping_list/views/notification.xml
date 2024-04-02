@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Notification Model -->
+    <!-- <record id="model_notification" model="ir.model">
+        <field name="name">sl.notification</field>
+        <field name="model">sl.notification</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- Notification Tree View -->
+    <record id="view_notification_tree" model="ir.ui.view">
+        <field name="name">sl.notification.tree</field>
+        <field name="model">sl.notification</field>
+        <field name="arch" type="xml">
+            <tree string="Notifications">
+                <field name="message"/>
+                <field name="timestamp"/>
+                <field name="read_status"/>
+                <field name="user_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Notification Form View -->
+    <record id="view_notification_form" model="ir.ui.view">
+        <field name="name">sl.notification.form</field>
+        <field name="model">sl.notification</field>
+        <field name="arch" type="xml">
+            <form string="Notification">
+                <sheet>
+                    <group>
+                        <field name="message"/>
+                        <field name="timestamp"/>
+                        <field name="read_status"/>
+                        <field name="user_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access Notifications and call views -->
+    <record id="action_view_notification" model="ir.actions.act_window">
+        <field name="name">Notifications</field>
+        <field name="res_model">sl.notification</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Notifications"
+        id="menu_notification"
+        parent="menu_sl_root"
+        action="action_view_notification"
+        sequence='60'/>
+
+</odoo>

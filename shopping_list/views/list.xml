@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Shopping List Model -->
+    <!-- <record id="model_list" model="ir.model">
+        <field name="name">sl.list</field>
+        <field name="model">sl.list</field>
+        <field name="state">manual</field>
+    </record> -->
+
+    <!-- Shopping List Tree View -->
+    <record id="view_list_tree" model="ir.ui.view">
+        <field name="name">sl.list.tree</field>
+        <field name="model">sl.list</field>
+        <field name="arch" type="xml">
+            <tree string="Shopping Lists">
+                <field name="date"/>
+                <field name="status"/>
+                <field name="one_time"/>
+                <field name="line_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Shopping List Form View -->
+    <record id="view_list_form" model="ir.ui.view">
+        <field name="name">sl.list.form</field>
+        <field name="model">sl.list</field>
+        <field name="arch" type="xml">
+            <form string="Shopping List">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="status"/>
+                        <field name="one_time"/>
+                        <field name="line_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to access Shopping Lists and call views -->
+    <record id="action_view_list" model="ir.actions.act_window">
+        <field name="name">Shopping Lists</field>
+        <field name="res_model">sl.list</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!-- Main Menu -->
+    <menuitem
+        name="Shopping Lists"
+        id="menu_list"
+        parent="menu_sl_root"
+        action="action_view_list"
+        sequence='100'/>
+
+</odoo>

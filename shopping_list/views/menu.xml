@@ -1,0 +1,8 @@
+<odoo>
+
+    <!-- Root Menu -->
+    <menuitem
+    name="Shopping List"
+    id="menu_sl_root"/>
+
+</odoo>
